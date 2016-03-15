@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="pec01_p7">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversor de monedas</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="js/all.min.js"></script>
+</head>
+<body ng-controller="MainController as ctrl">
+
+<!--Campo numerico de entrada para la cantidad a convertir-->
+<input id="cantidad" name="nombre" type="number" autocomplete="off" step="0.5" value="" placeholder="Introduce la cantidad" ng-model="ctrl.cantidad" />
+
+<!--Rellenamos el select de monedas de origen con los valores del array, mostrando
+    la etiqueta y utilizando el campo monedaOrigen como modelo-->
+<select id="monedasOrigen" ng-model="ctrl.monedaOrigen"
+        ng-options="c.label for c in ctrl.monedas">
+</select>
+
+<!--Rellenamos el select de monedas de destino con los valores del array, mostrando
+    la etiqueta y utilizando el campo monedaDestino como modelo-->
+<select id="monedasDestino" ng-model="ctrl.monedaDestino"
+        ng-options="c.label for c in ctrl.monedas">
+</select>
+
+<!--Texto con la cantidad convertida. Multiplicamos la cantidad introducida por el cambio
+    obtenido en la matriz de cambios en la fila marcada por el indice de la moneda de origen
+    y la columna marcada por el indice de la moneda de destino-->
+<p ng-cloak>{{ctrl.cantidad*ctrl.cambios[ctrl.monedaOrigen.value][ctrl.monedaDestino.value]}}</p>
+
+
+</body>
+</html>

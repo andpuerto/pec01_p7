@@ -1,0 +1,9 @@
+//scss de prueba. Solamente establece tres parametros pero usa variables
+//para ver que se genera el css correctamente
+$color1 : #00f;
+$color2 : #f00;
+h1 {
+  color: $color2;
+  background-color: $color1;
+  padding: 0.5em;
+}
