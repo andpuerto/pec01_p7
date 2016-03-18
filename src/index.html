@@ -4,31 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conversor de monedas</title>
+    <link rel="stylesheet" href="css/app.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="js/all.min.js"></script>
 </head>
 <body ng-controller="MainController as ctrl">
+<header>
+    <h1>Conversor de monedas</h1>
+</header>
 
-<!--Campo numerico de entrada para la cantidad a convertir-->
-<input id="cantidad" name="nombre" type="number" autocomplete="off" step="0.5" value="" placeholder="Introduce la cantidad" ng-model="ctrl.cantidad" />
+<!--Organizamos los contenidos en una tabla usando divs-->
+<div class="divTable">
+    <!-- Cabecera de la tabla -->
+    <div class="headRow">
+        <div class="divCell">
+            Origen:
+        </div>
+        <div class="divCell2">
+            Destino:
+        </div>
 
-<!--Rellenamos el select de monedas de origen con los valores del array, mostrando
-    la etiqueta y utilizando el campo monedaOrigen como modelo-->
-<select id="monedasOrigen" ng-model="ctrl.monedaOrigen"
-        ng-options="c.label for c in ctrl.monedas">
-</select>
+    </div>
 
-<!--Rellenamos el select de monedas de destino con los valores del array, mostrando
-    la etiqueta y utilizando el campo monedaDestino como modelo-->
-<select id="monedasDestino" ng-model="ctrl.monedaDestino"
-        ng-options="c.label for c in ctrl.monedas">
-</select>
+    <!-- Primera fila -->
+    <div class="divRow">
+        <div class="divCell">
+            <!--Rellenamos el select de monedas de origen con los valores del array, mostrando
+            la etiqueta y utilizando el campo monedaOrigen como modelo-->
+            <div class="input">
+                <select id="monedasOrigen" ng-model="ctrl.monedaOrigen"
+                        ng-options="c.label for c in ctrl.monedas">
+                </select>
+            </div>
+        </div>
+        <div class="divCell2">
+            <!--Rellenamos el select de monedas de destino con los valores del array, mostrando
+            la etiqueta y utilizando el campo monedaDestino como modelo-->
+            <div class="input">
+                <select id="monedasDestino" ng-model="ctrl.monedaDestino"
+                        ng-options="c.label for c in ctrl.monedas">
+                </select>
+            </div>
+        </div>
+    </div>
 
-<!--Texto con la cantidad convertida. Multiplicamos la cantidad introducida por el cambio
-    obtenido en la matriz de cambios en la fila marcada por el indice de la moneda de origen
-    y la columna marcada por el indice de la moneda de destino-->
-<p ng-cloak>{{ctrl.cantidad*ctrl.cambios[ctrl.monedaOrigen.value][ctrl.monedaDestino.value]}}</p>
+    <!-- Segunda fila -->
+    <div class="divRow">
 
+        <div class="divCell">
+            <!--Campo numerico de entrada para la cantidad a convertir-->
+            <div class="input"><input class="numberInput" id="cantidad" name="nombre" is-number="" type="number" number-mask="" autocomplete="off" min=0 step="0.01"  placeholder="Cantidad" ng-model="ctrl.cantidad" /></div>
+        </div>
+        <div class="divCell2">
+            <!--Texto con la cantidad convertida. Multiplicamos la cantidad introducida por el cambio
+                obtenido en la matriz de cambios en la fila marcada por el indice de la moneda de origen
+                y la columna marcada por el indice de la moneda de destino-->
+            <div class="result" ng-cloak>{{ctrl.cantidad*ctrl.cambios[ctrl.monedaOrigen.value][ctrl.monedaDestino.value]}}</div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

@@ -1,4 +1,67 @@
-h1 {
-  color: #f00;
-  background-color: #00f;
-  padding: 0.5em; }
+* {
+  font-family: 'Titillium Web', sans-serif; }
+
+header {
+  color: #355681;
+  box-shadow: inset 0 0 0 1px rgba(53, 86, 129, 0.4), inset 0 0 5px rgba(53, 86, 129, 0.5), inset -285px 0 35px white;
+  border-radius: 10px 10px 10px 10px;
+  position: relative; }
+  header h1 {
+    margin: 1em 0 1em 0;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 40px;
+    padding: 15px 15px 15px 5%; }
+
+div {
+  float: left; }
+
+.result {
+  border: 1px solid #8a8a8a;
+  padding: 0.2em 1em 0.2em 1em;
+  font-weight: bold;
+  color: #6f1400;
+  font-size: larger; }
+
+.input {
+  padding: 0.2em 1em 0 0; }
+
+input, select {
+  font-size: 1em; }
+
+.divTable {
+  display: table;
+  width: 100%;
+  max-width: 620px;
+  border: 1px solid  #355681;
+  border-spacing: 5px;
+  box-shadow: inset 0 0 0 1px rgba(53, 86, 129, 0.4), inset 0 0 5px rgba(53, 86, 129, 0.5), inset -285px 0 35px white;
+  border-radius: 10px 10px 10px 10px;
+  font-size: larger; }
+
+.divRow, .headRow {
+  width: 100%;
+  clear: both;
+  padding-top: 1em;
+  padding-bottom: 0.7em; }
+
+.headRow {
+  font-weight: bold;
+  border-bottom: solid 1px #355681; }
+
+.divCell2 {
+  float: left; }
+
+@media only screen and (min-width: 480px) {
+  .divCell {
+    float: left;
+    width: 310px; } }
+
+@media not screen and (min-width: 480px) {
+  .divCell {
+    float: left;
+    width: 120px; }
+  .numberInput {
+    width: 5em; }
+  .divTable {
+    max-width: 300px; } }

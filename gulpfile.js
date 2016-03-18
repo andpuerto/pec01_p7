@@ -49,26 +49,11 @@ gulp.task('copyImg', function() {
 });
 
 
-//gulp.task('browser-sync', function(){
-//    browserSync.init({
-//        logLevel: "info",
-//        browser: ["google chrome", "firefox"],
-//        proxy: "localhost:80",
- //       startPath: "/PEC01_P5/dist/",
-//        startPath: "./dist/"
-//        baseDir:"./dist"
-//    });
-
-//});
-
 
 //Inicia browser-sync
 gulp.task('browser-sync', function(){
-    // browserSync.init(["./src/css/*.css", "./src/js/*.js"], {
-//    browserSync.init(["./dist/css/*.css", "./dist/js/*.js", "./dist/*.html"], {
         browserSync.init({
         server:{
-          //
             baseDir:"./dist"
         }
     });
@@ -97,7 +82,8 @@ gulp.task('lint', function() {
 //Concatena todos los ficheros javascritp en uno solo y lo minimiza.
 //Antes de ejecutarse, lanza la tarea lint
 gulp.task('js', ['lint'], function() {
-    return gulp.src([srcPaths.scripts+'main.js', srcPaths.scripts+'extra.js'])
+//    return gulp.src([srcPaths.scripts+'main.js', srcPaths.scripts+'extra.js'])
+    return gulp.src([srcPaths.scripts+'**/*.js'])
         .pipe(concat('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(distPaths.scripts))

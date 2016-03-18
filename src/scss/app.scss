@@ -1,9 +1,113 @@
-//scss de prueba. Solamente establece tres parametros pero usa variables
-//para ver que se genera el css correctamente
-$color1 : #00f;
-$color2 : #f00;
-h1 {
-  color: $color2;
-  background-color: $color1;
-  padding: 0.5em;
+
+//Tipografia para todo el documento
+*{
+  font-family: 'Titillium Web', sans-serif;
+}
+
+//Estilo para la cabecera y el texto resaltado de su interior
+header{
+    color: #355681;
+    box-shadow: inset 0 0 0 1px rgba(53, 86, 129, 0.4),
+    inset 0 0 5px rgba(53, 86, 129, 0.5),
+    inset -285px 0 35px white;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+
+    h1 {
+      margin: 1em 0 1em 0;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 40px;
+      padding: 15px 15px 15px 5%;
+
+  }
+}
+
+
+//Establecemos float left para todos los div que vamos a usar
+div{
+  float: left;
+
+}
+
+//Estilo para el resultado de la conversión
+.result{
+  border: 1px solid #8a8a8a;
+  padding: 0.2em 1em 0.2em 1em;
+  font-weight: bold;
+  color:#6f1400;
+  font-size: larger;
+}
+
+//Estilos para los divs que envuelven cada campo
+.input{
+  padding: 0.2em 1em 0 0;
+}
+
+
+
+//Tam de letra para los input
+input, select{
+  font-size: 1em;
+}
+
+
+//Estilo para la tabla
+.divTable{
+  display:table;
+  width:100%;
+  //Tam maximo para la tabla en pantallas grandes
+  //Se pone solo por estetica, si da problemas puede quitarse
+  max-width: 620px;
+  border:1px solid  #355681;
+  border-spacing:5px;
+  box-shadow: inset 0 0 0 1px rgba(53, 86, 129, 0.4),
+  inset 0 0 5px rgba(53, 86, 129, 0.5),
+  inset -285px 0 35px white;
+  border-radius: 10px 10px 10px 10px;
+  font-size:larger;
+}
+
+//Estilo comun para todas las filas
+.divRow, .headRow{
+  width:100%;
+  clear:both;
+  padding-top: 1em;
+  padding-bottom: 0.7em;
+}
+
+//Solo para la fila de cabecera
+.headRow{
+  font-weight: bold;
+  border-bottom: solid 1px #355681;
+}
+
+//Estilo para la segunda columna
+.divCell2{
+  float:left;
+}
+
+
+//Estilo de la celda para tam de pantalla grandes
+@media only screen and (min-width: 480px) {
+  .divCell{
+    float:left;
+    width:310px;
+  }
+}
+
+//Estilo de la celda y del campo de entrada para tam de pantalla pequenos
+@media not screen and (min-width: 480px) {
+  .divCell{
+    float:left;
+    width:120px;
+  }
+  .numberInput{
+    width: 5em;
+  }
+
+  //Se reduce tambien el tam maximo de la tabla
+  .divTable{
+    max-width: 300px;
+  }
 }
